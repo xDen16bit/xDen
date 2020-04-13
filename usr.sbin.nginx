@@ -1,0 +1,31 @@
+# Last Modified: Mon Apr 13 06:34:21 2020
+#include <tunables/global>
+
+/usr/sbin/nginx {
+  #include <abstractions/base>
+  #include <abstractions/lxc/container-base>
+  capability chown,
+  capability dac_override,
+  capability dac_read_search,
+  capability net_bind_service,
+  capability setgid,
+  capability setuid,
+  /data/www/* r,
+  /etc/group r,
+  /etc/nginx/conf.d/ r,
+  /etc/nginx/mime.types r,
+  /etc/nginx/nginx.conf r,
+  /etc/nsswitch.conf r,
+  /etc/passwd r,
+  /run/nginx.pid rw,
+  /var/log/nginx/access.log w,
+  /var/log/nginx/error.log w,
+  /etc/ssl/openssl.cnf r,
+  /etc/nginx/modules-enabled/ r,
+  /usr/share/nginx/modules-available/mod-http-geoip.conf r,
+  /usr/lib/nginx/modules/ngx_http_geoip_module.so m,
+  /usr/share/nginx/modules-available/* r,
+  /usr/lib/nginx/modules/*.so m,
+  /etc/nginx/sites-enabled/ r,
+
+}
